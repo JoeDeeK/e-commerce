@@ -26,8 +26,11 @@ class SignIn extends React.Component{
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' });
         } catch(error) {
-            console.log(error);
-            if(error.code === 'auth/wrong-password') alert(error.message);
+            if(error.code === 'auth/wrong-password') {
+                alert(error.message);
+            } else {
+                console.log(error);
+            }
         }
     };
 
@@ -63,7 +66,7 @@ class SignIn extends React.Component{
                     />
                     <div className='buttons'>
                         <CustomButton type="submit">Sign In</CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
+                        <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>Sign in with Google</CustomButton>
                     </div>
 
                 </form>

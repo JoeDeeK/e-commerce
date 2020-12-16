@@ -41,8 +41,11 @@ class SignUp extends React.Component {
                 confirmPassword: ''
             });
         } catch(error) {
-            console.error(error);
-            if (error.code === "auth/weak-password") alert(error.message);
+            if (error.code === "auth/weak-password") {
+                alert(error.message);
+            } else {
+                console.error(error);
+            }
         }
     };
 
